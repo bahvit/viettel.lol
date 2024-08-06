@@ -57,6 +57,12 @@
                 alert('Xem nguồn trang đã bị chặn.');
             }
         });
+
+        // Chặn nhấp chuột phải
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            alert('Nhấp chuột phải đã bị chặn.');
+        });
     </script>
 </body>
 </html>
