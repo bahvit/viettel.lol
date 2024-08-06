@@ -5,10 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attack My Site</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Thêm kiểu cho thông báo */
+        .hidden-message {
+            display: none;
+            color: red;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Please Attack My Site</h1>
+        <!-- Thông báo ẩn sẽ được hiển thị khi F12 bị chặn -->
+        <p class="hidden-message" id="hiddenMessage">K núp git</p>
     </div>
+
+    <script>
+        // Lắng nghe sự kiện keydown để chặn phím F12
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12') {
+                event.preventDefault();
+                document.getElementById('hiddenMessage').style.display = 'block';
+                alert('Phím F12 đã bị chặn.');
+            }
+        });
+
+        // Chặn tổ hợp phím Ctrl + Shift + I (thường mở công cụ phát triển)
+        document.addEventListener('keydown', function(event) {
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'I') {
+                event.preventDefault();
+                alert('Công cụ phát triển đã bị chặn.');
+            }
+        });
+
+        // Chặn tổ hợp phím Ctrl + Shift + J (thường mở công cụ Console)
+        document.addEventListener('keydown', function(event) {
+            if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'J') {
+                event.preventDefault();
+                alert('Công cụ phát triển đã bị chặn.');
+            }
+        });
+
+        // Chặn tổ hợp phím Ctrl + U (thường xem nguồn trang)
+        document.addEventListener('keydown', function(event) {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'U') {
+                event.preventDefault();
+                alert('Xem nguồn trang đã bị chặn.');
+            }
+        });
+    </script>
 </body>
 </html>
